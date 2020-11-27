@@ -2,9 +2,9 @@ var w = '100%';
 var h = '200%';
 var fontsize = 24;
 var iconsize = 24;
-var defaultstart = 800;
+var defaultstart = 0;
 var datastart = -1;
-var defaultend = 2400;
+var defaultend = 2426;
 var boxwidth = 280;
 var boxmarginright = 4;
 var timetxtbot = 4;
@@ -13,8 +13,8 @@ var picker;
 
 var svg = d3.select("#col2")
   .append("svg")
-  .attr("height", "1440")
-  .attr("viewBox", "0 0 1000 2400")
+  .attr("height", "4800")
+  .attr("viewBox", "0 0 1000 4226")
   .attr("preserveAspectRatio", "none meet");
 
 function currstart() {
@@ -45,7 +45,7 @@ function draw(items) {
 
   svg = d3.select("#col2")
     .append("svg")
-    .attr("height", "2400")
+    .attr("height", "4800")
     .attr("viewBox", svgViewbox)
     .attr("preserveAspectRatio", "none meet");
 
@@ -398,7 +398,7 @@ function save_data(plan, date, user_id) {
 }
 
 function read_data_local() {
-  var v = localStorage.getItem(picker.getDate());
+  var v = localStorage.getItem(picker.getDate()) || "";
   d3.select("#inp").property('value', v);
 }
 
