@@ -10,11 +10,12 @@ var boxmarginright = 4;
 var timetxtbot = 4;
 var dtfmt = "ll - ddd";
 var picker;
+var height = localStorage.getItem('height') || 2400
 
 var svg = d3.select("#col2")
   .append("svg")
-  .attr("height", "4800")
-  .attr("viewBox", "0 0 1000 4226")
+  .attr("height", height)
+  .attr("viewBox", "0 0 1000 2426")
   .attr("preserveAspectRatio", "none meet");
 
 function currstart() {
@@ -45,7 +46,7 @@ function draw(items) {
 
   svg = d3.select("#col2")
     .append("svg")
-    .attr("height", "4800")
+    .attr("height", height)
     .attr("viewBox", svgViewbox)
     .attr("preserveAspectRatio", "none meet");
 
@@ -479,6 +480,15 @@ $(document).ready(function () {
     save_data(v);
     save_data_local(picker.getDate(), v)
   });
+
+  d3.select("#zoom").property('value', height)
+  d3.select("#zoom").on("input", function () {
+    height = this.value
+    var v = d3.select("#inp").property("value");
+    var items = parse(v);
+    draw(items);
+    localStorage.setItem('height', this.value)
+  })
 
   d3.select("#dt-today").on("click", function () { changedate('t'); });
   d3.select("#dt-prev").on("click", function () { changedate('p'); });
