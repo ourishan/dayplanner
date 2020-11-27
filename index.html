@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Day Plan</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91406373-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-91406373-5');
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAY6VNKGITL1sp61wBTO7wxlQhS08oxjpY",
+      authDomain: "crush-entropy.firebaseapp.com",
+      databaseURL: "https://crush-entropy.firebaseio.com",
+      projectId: "crush-entropy",
+      storageBucket: "crush-entropy.appspot.com",
+      messagingSenderId: "1087794641795"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="pikaday.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/png" href="boost.png" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="authbar">
+      <a class="authlink hide" id="auth-signin" href="/signin">Sign In</a>
+      <span id="auth-name"></span>
+      <!-- <span id="auth-Settings"><a href="/settings">Settings</a></span> -->
+      <a class="authlink hide" id="auth-logout" href="/logout">Logout</a>
+      <div class="authmodal hide">
+        <div class="authclose">x</div>
+        <div id="firebaseui-auth-container"></div>
+      </div>
+    </div>
+    <div id="content">
+
+      <div id="demo-wrap">
+        <div id="demo-title">Demo</div>
+        <div id="demo"></div>
+        <div id="demo-nav">
+          <div id="demo-prev" class="prevnext">&lt; prev</div>
+          <div id="demo-pg"></div>
+          <div id="demo-next" class="prevnext">next &gt; </div>
+        </div>
+      </div>
+      <h1 class="planpage">
+        <div class="dtsel">
+          <input type="text" id="datepicker" />
+          <div class="dtchg">
+            <input id="dt-prev" class="dtchgbtn" type="button" value="prev" />
+            <input id="dt-today" class="dtchgbtn" type="button" value="today" />
+            <input id="dt-next" class="dtchgbtn" type="button" value="next" />
+            <a href="#help" rel="modal:open" class="help-open">
+              <i class="fa fa-question-circle" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </h1>
+      <div id="col1" class="col">
+        <textarea id="inp" placeholder="start" autofocus></textarea>
+      </div>
+      <div id="col2" class="col">
+      </div>
+
+      <div id="help" class="modal">
+        <div>
+          <div style="margin-bottom:1em;">You can make up your own tag name
+            and the app will automatically pick a unique background color for
+            it.</div>
+          <div><b>Predefined Tags</b></div>
+          <table class="help-modal-tbl">
+            <thead>
+              <tr>
+                <th>Tag Name</th>
+                <th>Alias</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>#ritual</td>
+              <td>#rt</td>
+            </tr>
+            <tr>
+              <td>#startup</td>
+              <td>#st</td>
+            </tr>
+            <tr>
+              <td>#consulting</td>
+              <td>#co</td>
+            </tr>
+            <tr>
+              <td>#learn</td>
+              <td>#ln</td>
+            </tr>
+            <tr>
+              <td>#friends</td>
+              <td>#fr</td>
+            </tr>
+            <tr>
+              <td>#fun</td>
+              <td>#fn</td>
+            </tr>
+            <tr>
+              <td>#book</td>
+              <td>#bk</td>
+            </tr>
+            <tr>
+              <td>#done</td>
+              <td>#dn</td>
+            </tr>
+            <tr>
+              <td>#procrast</td>
+              <td>#px</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+<script src="pikaday.js"></script>
+
+<!-- <script src="auth.js"></script> -->
+<script src="plan.js"></script>
+<!-- <script src="demo.js"></script> -->
+
+</html>
