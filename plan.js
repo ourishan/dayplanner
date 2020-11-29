@@ -128,7 +128,7 @@ function draw(items) {
 
 function tags2bg(tags) {
   var colors = {
-    blue: 'blue',
+    random: '#' + Math.floor(Math.random() * 16777215).toString(16),
     yellow: '#fffdc0',
     green: '#dcf6ac',
     green2: '#aaffa3',
@@ -147,7 +147,7 @@ function tags2bg(tags) {
     book: 'red',
     consulting: 'green2',
     procrast: 'gray',
-    default: 'blue'
+    default: 'random'
   };
 
   function autocolormap(t) {
