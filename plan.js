@@ -37,6 +37,7 @@ function currstart() {
 function draw(items) {
   var offset = currstart();
   var times = d3.range(offset, defaultend + 1, 100);
+  var timeSep = d3.range(offset, defaultend + 1, 100/12);
   var svgHeight = (defaultend - offset);
   var svgViewbox = "0 0 1000 " + svgHeight;
 
@@ -69,6 +70,16 @@ function draw(items) {
     .attr("y1", function (d) { return d - offset + fontsize; })
     .attr("y2", function (d) { return d - offset + fontsize; });
 
+  svg.selectAll("line .timesep-light")
+    .data(timeSep)
+    .enter()
+    .append("line")
+    .attr("class", "timesep-light")
+    .attr("x1", 4)
+    .attr("x2", 996)
+    .attr("y1", function (d) { return d - offset + fontsize; })
+    .attr("y2", function (d) { return d - offset + fontsize; });
+
   svg.selectAll("text .time")
     .data(times)
     .enter()
@@ -83,8 +94,8 @@ function draw(items) {
     .enter()
     .append("rect")
     .attr("class", "timeblock")
-    .attr("rx", 8)
-    .attr("ry", 8)
+    .attr("rx", 4)
+    .attr("ry", 4)
     .attr("x", function (d) { return (d['col'] * (boxwidth + boxmarginright)) + 50; })
     .attr("y", function (d) { return d['y'] - offset + fontsize; })
     .attr("fill", function (d, i) { return tags2bg(d['tags']); })

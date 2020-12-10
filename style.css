@@ -191,6 +191,11 @@ textarea {
   stroke-width: 1;
 }
 
+.timesep-light {
+  stroke: rgb(24, 24, 24);
+  stroke-width: 1;
+}
+
 .currtime {
   stroke: red;
   stroke-width: 1;
